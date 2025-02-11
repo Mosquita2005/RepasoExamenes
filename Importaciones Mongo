@@ -1,0 +1,1 @@
+mongoimport --db maquinarefrescos --file C:\mongoDB\bin\auxJSON\concesionario.json --collection garaje
