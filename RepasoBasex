@@ -1,0 +1,26 @@
+Seleccionar todos los nodos de un tipo específico:
+//libro
+Seleccionar un nodo específico por su atributo:
+//libro[@id='123']
+Seleccionar un nodo específico por su contenido de texto:
+//libro[titulo='XPath Avanzado']
+Seleccionar nodos dentro de otro nodo:
+//biblioteca/libro
+Obtener el texto de un nodo:
+//libro/titulo/text()
+Obtener el valor de un atributo:
+//libro/@id
+Seleccionar un nodo específico por su contenido de texto:
+//libro[titulo='XPath Avanzado']
+Remplazar el valor de un nodo
+replace value of node //depositos[nombre='VEINTE CENTIMOS']/cantidad with 5
+Remplazar el nodo entero
+replace node //depositos[nombre='VEINTE CENTIMOS'] 
+with 
+<depositos>
+  <nombre>VEINTE CENTIMOS</nombre>
+  <valor>20</valor>
+  <cantidad>5</cantidad> 
+</depositos>
+eliminar un nodo
+delete node //depositos[nombre='VEINTE CENTIMOS']
