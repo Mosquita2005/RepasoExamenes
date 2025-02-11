@@ -1,0 +1,18 @@
+{
+  "_id": 1,
+  "nombre": "Concesionario ABC",
+  "vehiculos": [
+    {
+      "id": 1,
+      "marca": "Toyota",
+      "matricula": "1234ABC",
+      "modelo": "Corolla"
+    },
+    {
+      "id": 2,
+      "marca": "Honda",
+      "matricula": "5678XYZ",
+      "modelo": "Civic"
+    }
+  ]
+}
