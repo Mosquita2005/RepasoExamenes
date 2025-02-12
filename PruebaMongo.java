@@ -87,26 +87,20 @@ public class PruebaMongo {
 	
 	public void insercionPrueba2() {
 
-		System.out.println("\n PRUEBA INSERCION CON FIND DE OTRA COLECCION ");		
+			System.out.println("\n PRUEBA INSERCION CON FIND DE OTRA COLECCION ");		
 		
-		Document busqueda = new Document();
-		busqueda.put("clave", "coca");
+		Document eliminar = new Document();
+		eliminar.put("_id","2");
 		
-		Document proyeccion = new Document();
-		proyeccion.put("_id", 0);
+		Document vehiculo = new Document();
+		vehiculo.put("id", 3);
 		
-		MongoCursor resultado = miColeccion2.find(busqueda).projection(proyeccion).iterator();
-		Document doc = (Document) resultado.next();
-
-	
-		Document nuevo = new Document();
-		nuevo.put("valor", "50000");
-		nuevo.put("nombre", "prueba insert find sin _id");
-		nuevo.put("dispensadorIntruso", doc);
-
-		miColeccion.insertOne(nuevo);
-
-		System.out.println("\n INSERCION CORRECTA \n");		
+		Document array= new Document("vehiculos",vehiculo);
+		
+		Document pull= new Document("$pull",array);
+		
+		miColeccion.updateOne(eliminar,pull);
+		System.out.println("\n Eliminacion CORRECTA \n");	
 		
 	}
 
