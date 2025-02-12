@@ -5,6 +5,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bson.Document;
@@ -58,11 +59,28 @@ public class PruebaMongo {
 		System.out.println("\n PRUEBA INSERCION \n Nombre Prueba y valor 500 \n ");		
 		
 		Document nuevo = new Document();
-		nuevo.put("valor", "500");
-		nuevo.put("nombre", "prueba");
+		nuevo.put("_id", "2");
+		nuevo.put("nombre", "Concesionario DEF");
+		ArrayList<Document>array= new ArrayList<Document>();
+		Document v1= new Document();
+		v1.put("id", 3);
+		v1.put("marca", "ferrari");
+		v1.put("matricula", "241191AF");
+		v1.put("modelo", "sf24");
 
+		
+		
+		Document v2= new Document();
+		v2.put("id", 4);
+		v2.put("marca", "haas");
+		v2.put("matricula", "225321AF");
+		v2.put("modelo", "vf24");
+		
+		array.add(v1);
+		array.add(v2);
+		nuevo.put("vehiculos", array);
+		
 		miColeccion.insertOne(nuevo);
-
 		System.out.println("\n INSERCION CORRECTA \n");		
 		
 	}
