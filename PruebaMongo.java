@@ -12,7 +12,24 @@ import org.bson.Document;
 
 
 public class PruebaMongo {
-
+																							{
+  "_id": 1,
+  "nombre": "Concesionario ABC",
+  "vehiculos": [
+    {
+      "id": 1,
+      "marca": "Toyota",
+      "matricula": "1234ABC",
+      "modelo": "Corolla"
+    },
+    {
+      "id": 2,
+      "marca": "Honda",
+      "matricula": "5678XYZ",
+      "modelo": "Civic"
+    }
+  ]
+}
 	MongoCollection miColeccion;
 	MongoCollection miColeccion2;
 
@@ -85,15 +102,15 @@ public class PruebaMongo {
 		
 	}
 	
-	public void insercionPrueba2() {
+	public void eliminar() {
 
 			System.out.println("\n PRUEBA INSERCION CON FIND DE OTRA COLECCION ");		
 		
 		Document eliminar = new Document();
-		eliminar.put("_id","2");
+		eliminar.put("_id","1");
 		
 		Document vehiculo = new Document();
-		vehiculo.put("id", 3);
+		vehiculo.put("id", 1);
 		
 		Document array= new Document("vehiculos",vehiculo);
 		
