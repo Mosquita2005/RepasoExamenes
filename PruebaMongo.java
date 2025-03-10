@@ -140,3 +140,57 @@ public class PruebaMongo {
 	}
 
 }
+
+
+
+
+
+/* CON ESTE JSON*/
+
+[
+	{
+		"nombre": "Estudiantes",
+		"ciudad": "Madrid",
+		"titulos": ["copa", "korac"]
+	},
+	{
+		"nombre": "Real Madrid",
+		"ciudad": "Madrid",
+		"titulos": ["copa", "korac", "liga", "euroliga"]
+	},
+	{
+		"nombre": "Unicaja",
+		"ciudad": "Malaga",
+		"titulos": ["copa", "liga"]
+	}
+]
+
+
+
+
+public void leerInfoEquipos() {
+    MongoCursor<Document> resultado = miColeccion2.find().iterator();
+    
+    while (resultado.hasNext()) {
+        Document doc = resultado.next();
+
+        System.out.println("Nombre: " + doc.getString("nombre"));
+        System.out.println("Ciudad: " + doc.getString("ciudad"));
+        
+        // Obtener el array de títulos
+        List<String> titulos = (List<String>) doc.get("titulos");
+
+        // Verificar si tiene títulos y recorrerlos
+        if (titulos != null && !titulos.isEmpty()) {
+            System.out.println("Títulos:");
+            for (String titulo : titulos) {
+                System.out.println("   - " + titulo);
+            }
+        } else {
+            System.out.println("   No tiene títulos.");
+        }
+        
+        System.out.println("=========================================");
+    }
+}
+
