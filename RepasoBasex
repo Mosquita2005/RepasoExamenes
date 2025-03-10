@@ -24,3 +24,41 @@ with
 </depositos>
 eliminar un nodo
 delete node //depositos[nombre='VEINTE CENTIMOS']
+
+
+
+Para Constructor en BaseX
+
+Context directores;
+
+	public IntermediarioBaseX() {
+		try {
+			// Database context.
+			directores = new Context();
+			System.out.println("Abriendo bd dep desde constructor");
+			abrirDB("directores", directores);
+		}catch(Exception ex) {
+			System.out.println("Salta excepci�n");
+			crearDB("directores", "Ficheros/directores.xml", directores);
+		}
+	}
+
+
+	public void abrirDB(String nombre, Context context) throws BaseXException  {
+			
+			System.out.println("=== Abrir BD ===");
+			new Open(nombre).execute(context);
+			
+		}
+	
+	public void crearDB(String nombre, String rutaFicheroXML, Context context) {
+		
+		try {
+			System.out.println("=== Creando BD ===");
+			new CreateDB(nombre, rutaFicheroXML).execute(context);
+		} catch (BaseXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
